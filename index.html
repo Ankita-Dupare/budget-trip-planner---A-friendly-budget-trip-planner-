@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Trip Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">✈</span>
+        <span>Budget Trip Planner</span>
+      </a>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">🌙</button>
+        <div id="authArea" class="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Smart travel, smaller budget</span>
+          <h1>Plan affordable trips with dynamic destination details.</h1>
+          <p>Explore destinations, filter by budget and trip length, save favorites, and calculate estimated costs after login.</p>
+          <div class="hero-chips">
+            <span>Dynamic cards</span>
+            <span>Login protected details</span>
+            <span>Budget calculator</span>
+            <span>Favorites</span>
+          </div>
+        </div>
+
+        <div class="hero-panel glass-card">
+          <div class="hero-stats">
+            <div>
+              <strong id="destinationCount">0</strong>
+              <span>Destinations</span>
+            </div>
+            <div>
+              <strong>3</strong>
+              <span>Budget levels</span>
+            </div>
+            <div>
+              <strong>2</strong>
+              <span>Trip durations</span>
+            </div>
+          </div>
+          <p class="hero-note">Login required to unlock full destination details and use the total cost calculator.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-section">
+      <div class="container">
+        <div class="controls-grid glass-card">
+          <div class="search-box">
+            <span>🔍</span>
+            <input id="searchInput" type="text" placeholder="Search destinations..." />
+          </div>
+
+          <div class="filter-group">
+            <label for="budgetFilter">Budget</label>
+            <select id="budgetFilter">
+              <option value="All">All</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="daysFilter">Days</label>
+            <select id="daysFilter">
+              <option value="All">All</option>
+              <option value="2-3 Days">2–3 Days</option>
+              <option value="4-5 Days">4–5 Days</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sortFilter">Sort by</label>
+            <select id="sortFilter">
+              <option value="default">Recommended</option>
+              <option value="budget-asc">Budget: Low to High</option>
+              <option value="budget-desc">Budget: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="destinations-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Top budget-friendly destinations</h2>
+          <p id="resultsInfo">Showing all destinations</p>
+        </div>
+
+        <div id="destinationGrid" class="destination-grid"></div>
+        <div id="emptyState" class="empty-state hidden">
+          <h3>No destinations found</h3>
+          <p>Try changing the search text or filters.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Budget calculator</h2>
+          <p>Estimate the total trip cost based on destination, group size, and days.</p>
+        </div>
+
+        <div id="calculatorCard" class="calculator-card glass-card">
+          <div id="calculatorLock" class="lock-overlay hidden">
+            <div>
+              <h3>Login required</h3>
+              <p>Please login to use the budget calculator.</p>
+              <a class="primary-btn" href="login.html">Login</a>
+            </div>
+          </div>
+
+          <form id="budgetForm" class="calculator-form">
+            <div class="filter-group">
+              <label for="fromDestinationSelect">From Destination</label>
+              <select id="fromDestinationSelect"></select>
+            </div>
+            <div class="filter-group">
+              <label for="destinationSelect">To Destination</label>
+              <select id="destinationSelect"></select>
+            </div>
+            <div class="filter-group">
+              <label for="fromDateInput">From Date</label>
+              <input id="fromDateInput" type="date" />
+            </div>
+            <div class="filter-group">
+              <label for="toDateInput">To Date</label>
+              <input id="toDateInput" type="date" />
+            </div>
+            <div class="filter-group">
+              <label for="peopleInput">Number of people</label>
+              <input id="peopleInput" type="number" min="1" value="2" />
+            </div>
+            <button class="primary-btn" type="submit">Calculate</button>
+          </form>
+
+          <div id="budgetResult" class="budget-result">
+            <p>Select values and calculate your estimated trip total.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="detailModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-dialog">
+      <button id="closeModal" class="modal-close" type="button" aria-label="Close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Budget Trip Planner</p>
+      <p>Built with HTML, CSS and JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

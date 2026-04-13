@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Budget Trip Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="profile">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">✈</span>
+        <span>Budget Trip Planner</span>
+      </a>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">🌙</button>
+        <div id="authArea" class="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero profile-hero">
+      <div class="container">
+        <div id="profileGate" class="profile-lock glass-card hidden">
+          <h2>Login required</h2>
+          <p>Please login to view your profile page.</p>
+          <a class="primary-btn" href="login.html">Login</a>
+        </div>
+
+        <div id="profileContent" class="profile-shell hidden">
+          <div class="profile-summary glass-card">
+            <div>
+              <span class="eyebrow">Traveler profile</span>
+              <h1 id="profileName">Traveler</h1>
+              <p id="profileEmail">you@example.com</p>
+            </div>
+            <div class="profile-stats">
+              <div>
+                <strong id="profileFavoriteCount">0</strong>
+                <span>Favorites</span>
+              </div>
+              <div>
+                <strong id="profileDestinationCount">0</strong>
+                <span>India destinations</span>
+              </div>
+              <div>
+                <strong id="profileMemberSince">Today</strong>
+                <span>Member since</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-grid">
+            <section class="profile-card glass-card">
+              <h2>Account details</h2>
+              <div class="profile-detail-list">
+                <div>
+                  <span>Name</span>
+                  <strong id="profileDetailName">-</strong>
+                </div>
+                <div>
+                  <span>Email</span>
+                  <strong id="profileDetailEmail">-</strong>
+                </div>
+                <div>
+                  <span>Saved favorites</span>
+                  <strong id="profileDetailFavorites">0</strong>
+                </div>
+                <div>
+                  <span>Saved plans</span>
+                  <strong id="profileDetailPlans">0</strong>
+                </div>
+              </div>
+            </section>
+
+            <section class="profile-card glass-card">
+              <h2>Quick actions</h2>
+              <div class="profile-actions">
+                <a class="primary-btn" href="index.html">Explore destinations</a>
+                <a class="secondary-btn" href="index.html#calculatorCard">Open budget calculator</a>
+              </div>
+            </section>
+          </div>
+
+          <section class="profile-card glass-card profile-trips-section">
+            <div class="section-head profile-section-head">
+              <h2>Your planned trips</h2>
+              <p id="profileTripsInfo">View saved trip plans and bookings.</p>
+            </div>
+            <div id="profileTripsGrid" class="trip-grid"></div>
+            <div id="profileTripsEmpty" class="empty-state hidden">
+              <h3>No planned trips yet</h3>
+              <p>Use the budget calculator or tap Book Trip from any destination to save your travel plans here.</p>
+            </div>
+          </section>
+
+          <section class="destinations-section profile-favorites-section">
+            <div class="section-head">
+              <h2>Your favorite destinations</h2>
+              <p id="profileFavoritesInfo">Manage the places you saved after login.</p>
+            </div>
+            <div id="profileFavoritesGrid" class="destination-grid"></div>
+            <div id="profileEmptyState" class="empty-state hidden">
+              <h3>No favorite destinations yet</h3>
+              <p>Open destination details on the home page and tap the heart icon to save your favorites.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Budget Trip Planner</p>
+      <p>Built with HTML, CSS and JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
